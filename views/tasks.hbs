@@ -1,0 +1,43 @@
+<h1 style="text-align: center;">Tasks</h1>
+<a href="/">Home</a>
+
+<table style="width: 100%; border-collapse: collapse;">
+  <thead style="background-color: #dddddd;">
+    <tr>
+      <th style="padding: 8px; border: 1px solid #000000;">User</th>
+      <th style="padding: 8px; border: 1px solid #000000;">Task Name</th>
+      <th style="padding: 8px; border: 1px solid #000000;">Task Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each tasks}}
+    <tr style="background-color: #f2f2f2;">
+      <td style="padding: 8px; border: 1px solid #000000;">{{this.user.name}}</td>
+      <td style="padding: 8px; border: 1px solid #000000;">{{this.taskName}}</td>
+      <td style="padding: 8px; border: 1px solid #000000;">{{this.taskType}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<br>
+
+<form action="/tasks" method="post" style="width: 50%; margin: 0 auto;">
+  <label for="user" style="display: block;">User:</label>
+  <select id="user" name="user" style="width: 100%; padding: 8px;">
+    {{#each users}}
+    <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  <br>
+  <label for="taskName" style="display: block;">Task Name:</label>
+  <input type="text" id="taskName" name="taskName" style="width: 100%; padding: 8px;">
+  <br>
+  <label for="taskType" style="display: block;">Task Type:</label>
+  <select id="taskType" name="taskType" style="width: 100%; padding: 8px;">
+    <option value="Pending">Pending</option>
+    <option value="Done">Done</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Create Task" style="width: 100%; padding: 8px; background-color: #dddddd; border: none;">
+</form>

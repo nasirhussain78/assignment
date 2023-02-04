@@ -1,0 +1,34 @@
+<h1 style="text-align: center; font-size: 36px;">Users</h1>
+<a href="/">Home</a>
+<table style="width: 100%; margin: 30px auto; border-collapse: collapse;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid #ccc; padding: 8px;">Name</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">Email</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+    <tr style="border: 1px solid #ccc;">
+      <td style="padding: 8px;">{{this.name}}</td>
+      <td style="padding: 8px;">{{this.email}}</td>
+      <td style="padding: 8px;">{{this.phone}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<br>
+<form action="/users" method="post" style="width: 50%; margin: 0 auto;">
+  <label for="name" style="display: block;">Name:</label>
+  <input type="text" id="name" name="name" style="display: block; width: 100%; padding: 8px; margin-bottom: 20px;">
+<label for="email" style="display: block;">Email:</label>
+<input type="text" id="email" name="email" style="display: block; width: 100%; padding: 8px; margin-bottom: 20px;">
+
+<label for="phone" style="display: block;">Phone:</label>
+<input type="text" id="phone" name="phone" style="display: block; width: 100%; padding: 8px; margin-bottom: 20px;">
+
+<br><br>
+
+  <input type="submit" value="Create User" style="display: block; width: 100%; padding: 8px; background-color: #4CAF50; color: white;">
+</form>

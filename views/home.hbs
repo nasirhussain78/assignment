@@ -1,0 +1,57 @@
+<h1>Welcome to theTask Management App</h1>
+
+<p>
+  <a href="/users">Users</a> | <a href="/tasks">Tasks</a>
+</p>
+
+
+  <button id="export-button">Export to Excel</button>
+<script>
+  document.getElementById("export-button").addEventListener("click", function() {
+    fetch("/export")
+      .then(response => {
+        response.blob().then(blob => {
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.style.display = "none";
+          a.href = url;
+          a.download = "data.xlsx";
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+        });
+      });
+  });
+</script>
+
+<style>
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #3f51b5;
+  }
+
+  p {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #3f51b5;
+    margin: 0 20px;
+  }
+
+  #export-button {
+    background-color: #3f51b5;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+    display: block;
+    cursor: pointer;
+  }
+</style>
