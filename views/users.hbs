@@ -19,6 +19,9 @@
   </tbody>
 </table>
 <br>
+{{#if error}}
+<p style="color: red">{{error}}</p>
+{{/if}}
 <form action="/users" method="post" style="width: 50%; margin: 0 auto;">
   <label for="name" style="display: block;">Name:</label>
   <input type="text" id="name" name="name" style="display: block; width: 100%; padding: 8px; margin-bottom: 20px;">
